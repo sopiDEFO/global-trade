@@ -1,0 +1,176 @@
+/* --- VARIABLES ET RESET DE BASE --- */
+:root {
+    --navy-blue: #0A1931; /* Couleur de fond foncée (identique à l'image) */
+    --text-light: #F0F0F0; /* Texte principal clair */
+    --accent-red: #D62828; /* Couleur du lien "Directions" et du logo */
+    --link-hover: #A0A0A0;
+    --padding-desktop: 80px 5%;
+    --padding-mobile: 40px 8%;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif; /* Remplacer par la police exacte si connue */
+}
+
+/* --- STRUCTURE DU FOOTER --- */
+.site-footer {
+    background-color: var(--navy-blue);
+    color: var(--text-light);
+    padding: var(--padding-desktop);
+}
+
+.footer-top-container {
+    display: grid;
+    /* 4 colonnes de taille égale sur desktop */
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 40px;
+    padding-bottom: 50px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Séparateur */
+}
+
+.footer-col {
+    /* Assure que le contenu des colonnes commence au même endroit */
+    min-width: 0; 
+}
+
+/* --- TYPOGRAPHIE ET LIENS --- */
+.col-title {
+    font-size: 1.1em;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: var(--text-light); 
+}
+
+.nav-links, .contact-list, address {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 0.95em;
+}
+
+.nav-links li, .contact-list li {
+    margin-bottom: 10px;
+}
+
+.nav-links a, .contact-list li, address a, address {
+    color: var(--text-light);
+    text-decoration: none;
+    line-height: 1.6;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover, .direction-link:hover {
+    color: var(--link-hover);
+}
+
+/* --- COLONNE LOGO ET CONTACT --- */
+.footer-logo {
+    margin-bottom: 20px;
+}
+
+.logo-img {
+    /* Taille et couleur du logo à ajuster */
+    width: 60px; 
+    height: auto;
+    /* Ici, le logo est blanc et rouge, on simule l'espace */
+    background-color: transparent; 
+}
+.brand-name {
+    margin-top: 5px;
+    font-size: 1.1em;
+    font-weight: bold;
+    color: var(--accent-red); /* Nom de la marque en couleur accentuée */
+}
+
+.alliance-member {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    font-size: 0.85em;
+}
+.icon-alliance {
+    /* Simule l'icône de l'alliance */
+    width: 20px;
+    height: 20px;
+    background-color: var(--text-light); 
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+/* Style des liens de direction */
+.direction-link {
+    color: var(--accent-red); 
+    font-weight: bold;
+    text-decoration: none;
+}
+.direction-link:hover {
+    color: var(--link-hover);
+}
+
+/* --- LIGNE DU BAS (Bottom Bar) --- */
+.footer-bottom-bar {
+    padding-top: 20px;
+    display: flex;
+    justify-content: space-between; /* Aligner Réseaux à gauche, Mentions à droite */
+    align-items: center;
+    font-size: 0.85em;
+}
+
+.social-links a {
+    color: var(--text-light);
+    text-decoration: none;
+    margin-right: 20px;
+    transition: color 0.3s;
+}
+.social-links a:hover {
+    color: var(--accent-red);
+}
+
+.legal-links a, .legal-links p {
+    color: var(--text-light);
+    margin-left: 20px;
+    text-decoration: none;
+    display: inline-block;
+}
+.legal-links a:hover {
+    text-decoration: underline;
+}
+
+/* --- RESPONSIVE DESIGN (Mobile) --- */
+@media (max-width: 992px) {
+    .site-footer {
+        padding: var(--padding-mobile);
+    }
+    .footer-top-container {
+        /* Passe de 4 colonnes à 2 colonnes sur tablette */
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
+    .footer-bottom-bar {
+        flex-direction: column; /* Empile les liens sociaux et légaux */
+        text-align: center;
+    }
+    .social-links, .legal-links {
+        margin-bottom: 10px;
+        margin-top: 10px;
+    }
+    .legal-links a, .legal-links p {
+        margin: 0 10px;
+        display: inline-block;
+    }
+}
+
+@media (max-width: 576px) {
+    .footer-top-container {
+        /* Passe à 1 colonne sur mobile */
+        grid-template-columns: 1fr;
+    }
+    .footer-col {
+        padding-bottom: 20px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    .address-col {
+        border-bottom: none; /* Pas de ligne sous la dernière colonne */
+    }
+}
